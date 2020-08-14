@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import IntubationForm from "../intubation-form";
 import Dashboard from "../dashboard";
 
 export default function App() {
+  const [isActive, setisActive] = useState(false);
+
   return (
     <Router>
       <div>
@@ -15,9 +17,27 @@ export default function App() {
               height="28"
               src="https://repository-images.githubusercontent.com/255145344/05fd3e80-9526-11ea-98e6-8e2e5e97c2c7"
             />
+
+            <a
+              onClick={() => {
+                setisActive(!isActive);
+              }}
+              role="button"
+              className="navbar-burger burger"
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="navbarBasicExample"
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
           </div>
 
-          <div id="navbarBasicExample" className="navbar-menu">
+          <div
+            id="navbarBasicExample"
+            className={`navbar-menu ${isActive ? "is-active" : ""}`}
+          >
             <div className="navbar-start">
               <Link className="navbar-item" to="/">
                 Dashboard
