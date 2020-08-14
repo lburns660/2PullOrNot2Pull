@@ -56,7 +56,7 @@ const IntubationForm = () => {
 
   const submit = () => {
     fetch(
-      `${process.env.REACT_APP_URL}/${process.env.REACT_APP_STAGE_NAME}/${process.env.REACT_APP_RESOURCE_NAME}`,
+      `${process.env.REACT_APP_URL}${process.env.REACT_APP_STAGE_NAME}/${process.env.REACT_APP_RESOURCE_NAME}`,
       {
         method: "POST",
         mode: "no-cors",
